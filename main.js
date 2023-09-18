@@ -17,3 +17,10 @@ function multiply(a, b){
 function divide(a, b){
     return a / b;
 }
+
+function operate(op, first, second){
+    if (op === "+") return add(first, second);
+    if (op === "-") return subtract(first, second);
+    if (op === "*") return multiply(first, second);
+    if (op === "/") return divide(first, second);
+}
