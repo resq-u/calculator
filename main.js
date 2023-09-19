@@ -1,3 +1,4 @@
+
 const container = document.querySelector('#container');
 const displayContainer = document.querySelector('#display-container');
 const interactionContainer = document.querySelector('#interaction-container');
@@ -6,7 +7,6 @@ const operatorsContainer = document.querySelector('#operators-container');
 const numberButtons = document.querySelectorAll('.number');
 const operatorButtons = document.querySelectorAll('.op');
 
-console.log(numbersContainer);
 
 let firstNumber;
 let operator;
@@ -34,3 +34,14 @@ function operate(op, first, second){
     if (op === "*") return multiply(first, second);
     if (op === "/") return divide(first, second);
 }
+
+function displayNumbers(){
+
+    numberButtons.forEach(btn => {
+       let currentNumber = btn.textContent;
+        btn.addEventListener("click", () => {
+           displayContainer.textContent += currentNumber;  
+        });
+    });
+}
+displayNumbers();
