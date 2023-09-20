@@ -9,10 +9,11 @@ const operatorButtons = document.querySelectorAll('.op');
 
 displayNumbers();
 clearDisplay();
+getOperator()
 
-let firstNumber;
-let operator;
-let secondNumber;
+let firstNumber = '';
+let operator = '';
+let secondNumber = '';
 
 
 function add(a, b){
@@ -44,23 +45,36 @@ function displayNumbers(){
        let currentNumber = btn.textContent;
         btn.addEventListener('click', () => {
            displayContainer.textContent += currentNumber;
-           if (operator === undefined) {
+           if (operator === '') {
             firstNumber += currentNumber;
-            console.log(firstNumber);//last
-           } else if (operator !== undefined) {
+            console.log(firstNumber);
+           } else if (operator !== '') {
             secondNumber +=currentNumber;
-            console.log(secondNumber);// last
+            console.log(secondNumber);
            }
         });
     });
 }
-//last
+
 function clearDisplay(){
     const clearBtn = document.querySelector('#clear');
 
     clearBtn.addEventListener('click', () => {
         displayContainer.textContent = '\u00A0';
-        firstNumber = 0;
-        secondNumber = 0;
+            firstNumber = '';
+            secondNumber = '';
     });
 }
+
+function getOperator(){
+    
+    operatorButtons.forEach(btn => {
+
+        btn.addEventListener('click', () => {
+            displayContainer.textContent = '\u00A0';
+            operator = btn.textContent;
+        });
+    });
+
+}
+
