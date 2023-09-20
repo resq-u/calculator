@@ -9,7 +9,8 @@ const operatorButtons = document.querySelectorAll('.op');
 
 displayNumbers();
 clearDisplay();
-getOperator()
+getOperator();
+calculate();
 
 let firstNumber = '';
 let operator = '';
@@ -17,19 +18,19 @@ let secondNumber = '';
 
 
 function add(a, b){
-    return +a + +b;
+    return displayContainer.textContent = +a + +b;
 };
 
 function subtract(a, b){
-    return a - b;
+    return displayContainer.textContent = +a - +b;
 }
 
 function multiply(a, b){
-    return a * b;
+    return displayContainer.textContent = a * b;
 }
 
 function divide(a, b){
-    return a / b;
+    return displayContainer.textContent = a / b;
 }
 
 function operate(op, first, second){
@@ -75,6 +76,12 @@ function getOperator(){
             operator = btn.textContent;
         });
     });
-
 }
 
+function calculate() {
+    const equalsBtn = document.querySelector('#calculate')
+
+        equalsBtn.addEventListener('click', () => {
+            operate(operator, firstNumber, secondNumber);
+        });
+}
