@@ -17,19 +17,24 @@ getOperator();
 calculate();
 
 function add(a, b){
-    return displayContainer.textContent = +a + +b;
+    let sum = +a + +b;
+    return displayContainer.textContent = sum.toString().slice(0, 12);
 };
 
 function subtract(a, b){
-    return displayContainer.textContent = +a - +b;
+    let difference = a - b;
+    return displayContainer.textContent = difference.toString().slice(0, 12);
 }
 
 function multiply(a, b){
-    return displayContainer.textContent = a * b;
+    let product = a * b;
+    return displayContainer.textContent = product.toString().slice(0, 12);
 }
 
 function divide(a, b){
-    return displayContainer.textContent = a / b;
+    let quotient = a / b;
+    
+    return displayContainer.textContent = quotient.toString().slice(0, 12);
 }
 
 function operate(op, first, second){  
@@ -49,9 +54,11 @@ function displayNumbers(){
             if (operator === '') {
                 firstNumber += currentNumber; // 1st phase
 
-            } else if (operator !== '') { 
-                secondNumber += currentNumber; // 3rd phase
+            } else if (operator !== '') {
+                if (secondNumber === '') {
+                    displayContainer.textContent = `${secondNumber += currentNumber}`;
 
+                } else if (secondNumber !== '') secondNumber += currentNumber; // 3rd phase
             }
         });
     });
@@ -88,7 +95,7 @@ function getOperator(){
 }
 
 function calculate() {
-    const equalsButton = document.querySelector('#calculate')   
+    const equalsButton = document.querySelector('#calculate');
 
         equalsButton.addEventListener('click', () => {
             if (operator !== '') {
@@ -100,3 +107,4 @@ function calculate() {
         }); 
         
 }
+
