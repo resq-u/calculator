@@ -34,7 +34,6 @@ function subtract(a, b){
 
 function multiply(a, b){
     let product = a * b;
-    console.log("lol");
     if (product.toString().length > 11) {
         return displayContainer.textContent = product.toExponential(3);
     }
@@ -101,12 +100,12 @@ function getOperator(){
             if (operator === '') {
                 operator = btn.textContent;
                 displayContainer.textContent += btn.textContent;
-            } else if (operator !== ''){
-                displayContainer.textContent = '\u00A0';
-                firstNumber = operate(operator, firstNumber, secondNumber);  // 4th phase
-                secondNumber = '';
-                operator = btn.textContent;
-                displayContainer.textContent += btn.textContent;
+            } else if (operator !== '' && secondNumber !== ''){
+                    displayContainer.textContent = '\u00A0';
+                    firstNumber = operate(operator, firstNumber, secondNumber);  // 4th phase
+                    secondNumber = '';
+                    operator = btn.textContent;
+                    displayContainer.textContent += btn.textContent;
             }
         });
     });
