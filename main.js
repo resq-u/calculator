@@ -18,7 +18,7 @@ calculate();
 
 function add(a, b){
     let sum = +a + +b;
-    if (sum.toString().length > 11) {
+    if (sum.toString().split('.')[0].length > 11) {
         return displayContainer.textContent = sum.toExponential(3);
     }
     return displayContainer.textContent = sum.toString().slice(0, 11);
@@ -26,7 +26,7 @@ function add(a, b){
 
 function subtract(a, b){
     let difference = a - b;
-    if (difference.toString().length > 11) {
+    if (difference.toString().split('.')[0].length > 11) {
         return displayContainer.textContent = difference.toExponential(3);
     }
     return displayContainer.textContent = difference.toString().slice(0, 11);
@@ -34,7 +34,7 @@ function subtract(a, b){
 
 function multiply(a, b){
     let product = a * b;
-    if (product.toString().length > 11) {
+    if (product.toString().split('.')[0].length > 11) {
         return displayContainer.textContent = product.toExponential(3);
     }
     return displayContainer.textContent = product.toString().slice(0, 11);
@@ -42,7 +42,7 @@ function multiply(a, b){
 
 function divide(a, b){
     let quotient = a / b;
-    if (quotient.toString().length > 11) {
+    if (quotient.toString().split('.')[0].length > 11) {
         return displayContainer.textContent = quotient.toExponential(3);
     }
     if (b == 0) return displayContainer.textContent = "lmao";
